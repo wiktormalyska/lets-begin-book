@@ -1,6 +1,7 @@
 package org.wiktormalyska.letsbeginbook.utils.textures;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.render.*;
 import net.minecraft.util.Identifier;
 
@@ -28,6 +29,13 @@ public class TexturesHandler {
 
     public static void renderTexture(Textures texture, double x, double y) {
         renderTexture(texture, x, y, 0, 255, 255, 255, 255);
+    }
+
+    public static void renderTextureCentered(Textures texture, double x, double y, Screen screen) {
+        int screenCenterX = screen.width / 2;
+        int screenCenterY = screen.height / 2;
+        Resolution resolution = texture.getResolution();
+        TexturesHandler.renderTexture(texture, screenCenterX- (double) resolution.getX() /2, screenCenterY- (double) resolution.getY() /2);
     }
 
 

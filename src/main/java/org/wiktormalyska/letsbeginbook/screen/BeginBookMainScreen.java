@@ -26,11 +26,11 @@ public class BeginBookMainScreen extends Screen {
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         this.renderBackground(matrices);
-        int screenCenterX = this.width / 2;
-        int screenCenterY = this.height / 2;
-        Resolution resolution = Textures.BACKGROUND.getResolution();
-        TexturesHandler.renderTexture(Textures.BACKGROUND, screenCenterX- (double) resolution.getX() /2, screenCenterY- (double) resolution.getY() /2);
+        TexturesHandler.renderTextureCentered(Textures.BACKGROUND, 0, 0, this);
+        textRenderer.draw(matrices, Text.of("Let's Begin Book"), (float) this.width /2, (float) this.height /2, 0xFFFFFF);
+        //TODO: Add scalable text
         super.render(matrices, mouseX, mouseY, delta);
+
     }
     @Override
     public boolean shouldPause() {
