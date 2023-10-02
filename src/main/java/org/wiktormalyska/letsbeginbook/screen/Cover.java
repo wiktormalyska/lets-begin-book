@@ -37,6 +37,7 @@ public class Cover extends Screen {
         //draw credits
         if (isBackCover){
             drawCenteredText(matrices, this.textRenderer,"Mod created by Wiktor Malyska", this.width/2,this.height-80, 0x676767);
+
         }
         super.render(matrices, mouseX, mouseY, delta);
     }

@@ -23,6 +23,8 @@ public class TexturesHandler {
         bufferBuilder.vertex(x, y, 0.0).texture(0.0F, (float)vOffset).color(red, green, blue, alpha).next();
         tessellator.draw();
     }
+
+
     public static void renderTexture(Textures texture, double x, double y, int vOffset) {
         renderTexture(texture, x, y, vOffset, 255, 255, 255, 255);
     }
