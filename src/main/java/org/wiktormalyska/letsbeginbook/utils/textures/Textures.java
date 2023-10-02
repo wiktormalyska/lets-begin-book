@@ -4,7 +4,9 @@ import net.minecraft.util.Identifier;
 import org.wiktormalyska.letsbeginbook.Let_sBeginBook;
 
 public enum Textures {
-    BACKGROUND("textures/gui/background.png", new Resolution(256,256)),
+    OPENED_BOOK("textures/gui/opened_book.png", new Resolution(256,256)),
+    CLOSED_BOOK("textures/gui/closed_book.png", new Resolution(256,256)),
+    CLOSED_BOOK_BACK("textures/gui/closed_book.png", new Resolution(256,256)),
     ;
     private final Resolution resolution;
     private final Identifier id;

@@ -10,7 +10,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import org.wiktormalyska.letsbeginbook.screen.BeginBookMainScreen;
+import org.wiktormalyska.letsbeginbook.client.Let_sBeginBookClient;
 import org.wiktormalyska.letsbeginbook.utils.sounds.Sounds;
 import org.wiktormalyska.letsbeginbook.utils.sounds.SoundsHandler;
 
@@ -24,7 +24,7 @@ public class BeginBookItem extends Item {
         if (!world.isClient) {
             // Execute the code to open the GUI on the main thread
             MinecraftClient.getInstance().execute(() -> {
-                MinecraftClient.getInstance().setScreen(new BeginBookMainScreen());
+                MinecraftClient.getInstance().setScreen(Let_sBeginBookClient.bookHandler.openBook());
             });
             user.playSound(SoundsHandler.getSound(Sounds.DING), SoundCategory.BLOCKS, 1f, 1f);
         }
