@@ -6,26 +6,18 @@ import org.wiktormalyska.letsbeginbook.utils.textures.Textures;
 
 public class BookHandler {
     private final Cover cover, backCover;
-    private int amountOfPages;
+    private final int amountOfPages;
     public int openedPage;
     private final Page[] pages;
     public BookHandler(int amountOfPages) {
         this.cover = new Cover(
                 Textures.CLOSED_BOOK,
                 "Let's Begin Book",
-                new Description(
-                        0x646464,
-                        "In this book you will find all the information you need to get started with the modpack!"
-                )
-        );
+                new Description("In this book you will find all the information you need to get started with the modpack!"));
         this.backCover = new Cover(
                 Textures.CLOSED_BOOK_BACK,
                 "jkhgfhjkuiytrfghjiouytrfdghjytrdfgcvbhjuytfrghjuhytrfgcvbhjgytfrdcvb",
-                new Description(
-                        0x646464,
-                        "Enjoy the modpack!"
-                )
-        );
+                new Description("Enjoy the modpack!"));
         this.backCover.isBackCover();
         this.openedPage = 0;
         this.amountOfPages = amountOfPages+2;
