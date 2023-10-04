@@ -4,12 +4,12 @@ import net.minecraft.client.gui.screen.Screen;
 import org.wiktormalyska.letsbeginbook.utils.text.Description;
 import org.wiktormalyska.letsbeginbook.utils.textures.Textures;
 
-public class BookHandler {
+public class BookPagesHandler {
     private final Cover cover, backCover;
     private final int amountOfPages;
     public int openedPage;
     private final Page[] pages;
-    public BookHandler(int amountOfPages) {
+    public BookPagesHandler(int amountOfPages) {
         this.cover = new Cover(
                 Textures.CLOSED_BOOK,
                 "Let's Begin Book",
@@ -20,12 +20,13 @@ public class BookHandler {
                 new Description("Enjoy the modpack!"));
         this.backCover.isBackCover();
         this.openedPage = 0;
-        this.amountOfPages = amountOfPages+2;
+        this.amountOfPages = amountOfPages;
         this.pages = new Page[amountOfPages];
+
         this.pages[0]=new Page(Textures.OPENED_BOOK,
-                "Welcome to Let's Begin!",
-                "This book is a guide to the mod Let's Begin. It will help you to get started with the modpack and will show you all the features of the modpack.",
-                "ytdydfgycfgcgfdgyfdtfdtdtdytdtdtytrddyrderydytddgfgfgyfydtsrfghjbkhgyfdxgcvbhjuytfgcvbhjyugtrdgfcvhguytrdgfxcvhguytrdf"
+                "top0",
+                "left0",
+                "right0"
         );
     }
 
@@ -34,22 +35,24 @@ public class BookHandler {
     }
 
     public Screen openNextPage(){
-        if (openedPage < amountOfPages){
+        if (openedPage < amountOfPages+1){
             openedPage++;
         }
-        if (openedPage == amountOfPages){
+        if (openedPage == amountOfPages+1){
+            openedPage--;
             return backCover;
         }
-        return pages[openedPage];
+        return pages[openedPage-1];
     }
 
     public Screen openPreviousPage(){
-        if (openedPage > amountOfPages){
+        if (openedPage > amountOfPages+1){
             openedPage--;
         }
         if (openedPage == amountOfPages){
+            openedPage++;
             return cover;
         }
-        return pages[openedPage];
+        return pages[openedPage-1];
     }
 }
