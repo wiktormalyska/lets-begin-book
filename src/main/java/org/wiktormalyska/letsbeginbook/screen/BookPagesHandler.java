@@ -6,7 +6,6 @@ import org.wiktormalyska.letsbeginbook.utils.textures.Textures;
 
 public class BookPagesHandler {
     private final Cover cover, backCover;
-    private final int amountOfPages;
     public int openedPage;
     private final Page[] pages;
     public BookPagesHandler(int amountOfPages) {
@@ -20,7 +19,6 @@ public class BookPagesHandler {
                 new Description("Enjoy the modpack!"));
         this.backCover.isBackCover();
         this.openedPage = 0;
-        this.amountOfPages = amountOfPages;
         this.pages = new Page[amountOfPages];
 
         this.pages[0]=new Page(Textures.OPENED_BOOK,
@@ -33,26 +31,12 @@ public class BookPagesHandler {
     public Screen openBook() {
         return cover;
     }
-
-    public Screen openNextPage(){
-        if (openedPage < amountOfPages+1){
-            openedPage++;
-        }
-        if (openedPage == amountOfPages+1){
-            openedPage--;
-            return backCover;
-        }
-        return pages[openedPage-1];
+    public Screen openNextPage() {
+        // Check if there's only one page, and the user is on it.
     }
 
-    public Screen openPreviousPage(){
-        if (openedPage > amountOfPages+1){
-            openedPage--;
-        }
-        if (openedPage == amountOfPages){
-            openedPage++;
-            return cover;
-        }
-        return pages[openedPage-1];
+
+    public Screen openPreviousPage() {
+        // Check if we are on the front cover or at the back cover.
     }
 }
