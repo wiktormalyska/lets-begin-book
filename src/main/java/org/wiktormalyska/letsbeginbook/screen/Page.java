@@ -37,11 +37,11 @@ public class Page extends Screen {
         this.renderBackground(matrices);
         TexturesHandler.renderTextureCentered(backgroundTexture, 0, 0, this);
         //draw Title
-        textRenderer.drawWithShadow(matrices, title, ((float) this.width /2)-97, ((float) this.height /2)-60, 0xFFFFFF);
+        textRenderer.drawWithShadow(matrices, title, ((float) this.width /2)-97, ((float) this.height /2)-70, 0xFFFFFF);
         //draw Text Left Page
-        textRenderer.drawWithShadow(matrices, textLeftPage, ((float) this.width /2)-97, ((float) this.height /2)-50, 0x616161);
+        textRenderer.draw(matrices, textLeftPage, ((float) this.width /2)-97, ((float) this.height /2)-60, 0x616161);
         //draw Text Right Page
-        textRenderer.drawWithShadow(matrices, textRightPage, ((float) this.width /2)-57, ((float) this.height /2)-50, 0x616161);
+        textRenderer.draw(matrices, textRightPage, ((float) this.width /2)-57, ((float) this.height /2)-60, 0x616161);
         //draw Buttons
         addDrawableChild(backButton);
         addDrawableChild(nextButton);
@@ -54,11 +54,11 @@ public class Page extends Screen {
     }
 
     public void initButtons(){
-        nextButton = new ButtonWidget((this.width / 2)+ButtonsHandler.x, (this.height / 2)+ButtonsHandler.y, 20, 20, Text.of(">"), (buttonWidget) -> {
+        nextButton = new ButtonWidget((this.width / 2)+ButtonsHandler.Pagex, (this.height / 2)+ButtonsHandler.Pagey, 20, 20, Text.of(">"), (buttonWidget) -> {
             System.out.println("Next");
             MinecraftClient.getInstance().setScreen(Let_sBeginBookClient.bookHandler.openNextPage());
         });
-        backButton = new ButtonWidget((this.width / 2)-ButtonsHandler.x, (this.height / 2)+ButtonsHandler.y, 20, 20, Text.of("<"), (buttonWidget) -> {
+        backButton = new ButtonWidget((this.width / 2)-ButtonsHandler.Pagex-20, (this.height / 2)+ButtonsHandler.Pagey, 20, 20, Text.of("<"), (buttonWidget) -> {
             System.out.println("Back");
             MinecraftClient.getInstance().setScreen(Let_sBeginBookClient.bookHandler.openPreviousPage());
         });

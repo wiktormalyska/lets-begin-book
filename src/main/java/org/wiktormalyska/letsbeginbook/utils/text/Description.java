@@ -11,29 +11,30 @@ import java.util.List;
 public class Description {
     private final int color;
     private final List<String> linesOfText;
-    private final int x;
-    private final int y;
     private final float scale;
-    public Description(int color, String text, int x, int y, float scale){
+    private final int y;
+    public Description(int color, String text, float scale){
         this.color = color;
         linesOfText = splitStringIntoLines(text);
-        this.x = x;
-        this.y = y;
         this.scale = scale;
+        this.y = 0;
     }
 
     public Description(String text){
         this.color = 0x828282;
         linesOfText = splitStringIntoLines(text);
-        this.x = 0;
-        this.y = -50;
         this.scale = 0.75f;
+        this.y = 0;
+    }
+    public Description(String text, int y){
+        this.color = 0x828282;
+        linesOfText = splitStringIntoLines(text);
+        this.scale = 0.75f;
+        this.y = y;
     }
     public void draw(MatrixStack matrices, TextRenderer textRenderer, Screen screen){
         for (int i=0; i<linesOfText.size(); i++){
-            double scaledX = (screen.width/2)/scale;
-            double scaledY = ((screen.height/2)/scale);
-            TextHandler.drawCenteredTextWithScale(matrices, textRenderer, linesOfText.get(i), (int) scaledX+x, (int) (scaledY+y)+i*10 , color, scale);
+            TextHandler.drawCenteredTextWithScale(matrices, textRenderer, linesOfText.get(i), 0, y+(i*10) , color, scale, screen);
         }
     }
 

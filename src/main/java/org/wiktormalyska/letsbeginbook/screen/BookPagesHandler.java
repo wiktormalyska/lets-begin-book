@@ -15,7 +15,7 @@ public class BookPagesHandler {
                 new Description("In this book you will find all the information you need to get started with the modpack!"));
         this.backCover = new Cover(
                 Textures.CLOSED_BOOK_BACK,
-                "jkhgfhjkuiytrfghjiouytrfdghjytrdfgcvbhjuytfrghjuhytrfgcvbhjgytfrdcvb",
+                "End of the book",
                 new Description("Enjoy the modpack!"));
         this.backCover.isBackCover();
         this.openedPage = 0;
