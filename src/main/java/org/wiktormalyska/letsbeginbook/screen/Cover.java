@@ -9,6 +9,7 @@ import net.minecraft.text.Text;
 import org.wiktormalyska.letsbeginbook.client.Let_sBeginBookClient;
 import org.wiktormalyska.letsbeginbook.utils.buttons.ButtonsHandler;
 import org.wiktormalyska.letsbeginbook.utils.text.Description;
+import org.wiktormalyska.letsbeginbook.utils.text.TextHandler;
 import org.wiktormalyska.letsbeginbook.utils.textures.Textures;
 import org.wiktormalyska.letsbeginbook.utils.textures.TexturesHandler;
 
@@ -43,7 +44,8 @@ public class Cover extends Screen {
         description.draw(matrices, this.textRenderer, this);
         //draw credits
         if (isBackCover) {
-            drawCenteredText(matrices, this.textRenderer, "Mod created by :Wiktor Małyska", this.width / 2, this.height - 80, 0x676767);
+
+            TextHandler.drawCenteredTextWithScale(matrices, this.textRenderer, "Mod created by Wiktor Małyska", 0, 110, 0x676767, 0.5f, this);
             addDrawableChild(backButton);
         } else {
             addDrawableChild(nextButton);
@@ -61,11 +63,11 @@ public class Cover extends Screen {
     }
 
     public void initButtons(){
-        nextButton = new ButtonWidget((this.width / 2)+ButtonsHandler.x, (this.height / 2)+ButtonsHandler.y, 20, 20, Text.of(">"), (buttonWidget) -> {
+        nextButton = new ButtonWidget((this.width / 2)+ButtonsHandler.Coverx, (this.height / 2)+ButtonsHandler.Covery, 20, 20, Text.of(">"), (buttonWidget) -> {
             System.out.println("Next");
             MinecraftClient.getInstance().setScreen(Let_sBeginBookClient.bookHandler.openNextPage());
         });
-        backButton = new ButtonWidget((this.width / 2)-ButtonsHandler.x, (this.height / 2)+ButtonsHandler.y, 20, 20, Text.of("<"), (buttonWidget) -> {
+        backButton = new ButtonWidget((this.width / 2)-ButtonsHandler.Coverx-20, (this.height / 2)+ButtonsHandler.Covery, 20, 20, Text.of("<"), (buttonWidget) -> {
             System.out.println("Back");
             MinecraftClient.getInstance().setScreen(Let_sBeginBookClient.bookHandler.openPreviousPage());
         });
