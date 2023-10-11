@@ -16,7 +16,7 @@ public class BookPagesHandler {
         this.backCover = new Cover(
                 Textures.CLOSED_BOOK_BACK,
                 "End of the book",
-                new Description("Enjoy the modpack!"));
+                new Description("Enjoy the modpack!", -60));
         this.backCover.isBackCover();
         this.openedPage = 0;
         this.pages = new Screen[amountOfPages+2];
