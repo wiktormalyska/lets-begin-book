@@ -4,11 +4,15 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.text.OrderedText;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import org.wiktormalyska.letsbeginbook.client.Let_sBeginBookClient;
 import org.wiktormalyska.letsbeginbook.utils.buttons.ButtonsHandler;
 import org.wiktormalyska.letsbeginbook.utils.textures.Textures;
 import org.wiktormalyska.letsbeginbook.utils.textures.TexturesHandler;
+
+
 
 public class Page extends Screen {
     private final Textures backgroundTexture;
@@ -37,7 +41,7 @@ public class Page extends Screen {
         this.renderBackground(matrices);
         TexturesHandler.renderTextureCentered(backgroundTexture, 0, 0, this);
         //draw Title
-        textRenderer.drawWithShadow(matrices, title, ((float) this.width /2)-97, ((float) this.height /2)-70, 0xFFFFFF);
+        textRenderer.draw(matrices, title, ((float) this.width /2)-92, ((float) this.height /2)-70, 0x717171) ;
         //draw Text Left Page
         textRenderer.draw(matrices, textLeftPage, ((float) this.width /2)-97, ((float) this.height /2)-60, 0x616161);
         //draw Text Right Page
