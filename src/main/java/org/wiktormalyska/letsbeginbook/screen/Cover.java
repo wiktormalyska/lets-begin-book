@@ -45,7 +45,7 @@ public class Cover extends Screen {
         //draw credits
         if (isBackCover) {
 
-            TextHandler.drawCenteredTextWithScale(matrices, this.textRenderer, "Mod created by Wiktor Małyska", 0, 110, 0x676767, 0.5f, this);
+            TextHandler.drawCenteredTextWithScale(matrices, this.textRenderer, "Mod created by Wiktor Małyska", 0, 130, 0x676767, 0.5f, this);
             addDrawableChild(backButton);
         } else {
             addDrawableChild(nextButton);
