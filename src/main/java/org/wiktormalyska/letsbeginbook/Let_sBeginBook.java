@@ -11,4 +11,6 @@ public class Let_sBeginBook implements ModInitializer{
     public void onInitialize() {
         ModItemRegistry.registerItems();
     }
+
+    //TODO: setup cloth config https://shedaniel.gitbook.io/cloth-config/setup-cloth-config/cloth-config-fabric
 }
