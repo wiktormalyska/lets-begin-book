@@ -9,6 +9,7 @@ import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import org.wiktormalyska.letsbeginbook.client.Let_sBeginBookClient;
 import org.wiktormalyska.letsbeginbook.utils.buttons.ButtonsHandler;
+import org.wiktormalyska.letsbeginbook.utils.text.TextHandler;
 import org.wiktormalyska.letsbeginbook.utils.textures.Textures;
 import org.wiktormalyska.letsbeginbook.utils.textures.TexturesHandler;
 
@@ -41,7 +42,8 @@ public class Page extends Screen {
         this.renderBackground(matrices);
         TexturesHandler.renderTextureCentered(backgroundTexture, 0, 0, this);
         //draw Title
-        textRenderer.draw(matrices, title, ((float) this.width /2)-92, ((float) this.height /2)-70, 0x717171) ;
+//        textRenderer.draw(matrices, title, ((float) this.width /2)-92, ((float) this.height /2)-70, 0x717171);
+        TextHandler.drawWithOutline(matrices, textRenderer, title, this.width /2-92, this.height /2-70, 0xFFFFFF, 0xd5c4b1);
         //draw Text Left Page
         textRenderer.draw(matrices, textLeftPage, ((float) this.width /2)-97, ((float) this.height /2)-60, 0x616161);
         //draw Text Right Page
